@@ -13,7 +13,7 @@ async function updateAllAccounts(){
         await updateWinLoss(accountList[i].summonerId, "RANKED_SOLO_5x5")
         await updateTotalKillsAndDeaths(accountList[i].puuid, "RANKED_SOLO_5x5")
     }
-
+    console.log("Updated all")
 }
 
 //TODO Add sorting by queue

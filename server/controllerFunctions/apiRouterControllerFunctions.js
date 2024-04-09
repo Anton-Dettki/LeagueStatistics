@@ -1,7 +1,10 @@
 const account = require('../models/account')
 
 async function giveAllAccounts(){
-    return account.find();
+    const accounts = await account.find()
+    console.log(accounts)
+
+    return accounts
 }
 
 module.exports = {
