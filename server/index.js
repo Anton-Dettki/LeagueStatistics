@@ -25,3 +25,4 @@ app.use('/update', riotApiRoutes)
 
 
 app.listen(process.env.PORT, () => console.log(`App listening at http://localhost:${process.env.PORT}`))
+module.exports = app; // Export the Express app

@@ -7,7 +7,8 @@
   "scripts": {
     "start:server": "nodemon index.js --ignore '../client/'",
     "start:client": "npm run serve --prefix '../client/'",
-    "dev": "concurrently \"npm run start:server\" \"npm run start:client\""
+    "dev": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "build": "webpack --config=Scripts/config/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,8 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
-    "mongoose": "^8.2.3"
+    "mongoose": "^8.2.3",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
