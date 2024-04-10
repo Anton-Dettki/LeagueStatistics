@@ -3,6 +3,6 @@ const updateController = require('../controllers/updateController')
 
 const router = Router();
 
-router.get('/test', updateController.updateAllAccounts)
+router.get('/allAccounts', updateController.updateAllAccounts)
 
 module.exports = router

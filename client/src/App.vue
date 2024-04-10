@@ -14,7 +14,7 @@
     ></v-data-table>
   </v-card>
 
-  <v-btn @click="updateAccountData()">
+  <v-btn @click="refresh()">
     Update
   </v-btn>
 
@@ -37,16 +37,23 @@ const headers = [
 
 
 onMounted(async () => {
+  getAccountData()
+})
+async function getAccountData(){
   const response = await axios.get("api/allAccounts")
   items.value = response.data
-  console.log(items.value)
-})
-
-async function updateAccountData(){
-  const response = await axios.get('api/test')
-  items.value = response.data
-  console.log("It worked")
 }
+
+async function updateData(){
+  const response = await axios.get('update/allAccounts')
+}
+
+async function refresh(){
+  await updateData()
+  const response = await getAccountData()
+  items.value = response.data
+}
+
 </script>
 
 <style>

@@ -6,7 +6,6 @@ const router = Router();
 
 router.get('/allAccounts', apiRouterController.account_list)
 
-
-router.get('/test', updateController.updateAllAccounts)
+router.get('/update', updateController.updateAllAccounts)
 
 module.exports = router
