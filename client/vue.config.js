@@ -7,9 +7,6 @@ module.exports = defineConfig({
         '/api': {
           target: 'http://localhost:3000',
         },
-        '/update': {
-          target: 'http://localhost:3000',
-        }
       },
     },
   },

@@ -10,11 +10,11 @@
   <v-card>
     <v-data-table
       :headers="headers"
-      :items="items"
+      :items="dataStore.items"
     ></v-data-table>
   </v-card>
 
-  <v-btn @click="refresh()">
+  <v-btn @click="dataStore.getAllAccounts()">
     Update
   </v-btn>
 
@@ -24,8 +24,9 @@
 /* eslint-disable */
 import axios from "axios"
 import {onMounted, ref} from "vue";
+import {useDataStore} from "@/stores/DataStore";
 
-const items = ref([])
+const dataStore = useDataStore()
 
 const headers = [
   { title: 'Account', value: 'gameName'},
@@ -35,24 +36,9 @@ const headers = [
   { title: 'Losses', value: 'losses', sortable: true }
 ]
 
-
-onMounted(async () => {
-  getAccountData()
+onMounted( async () => {
+    await dataStore.getAllAccounts()
 })
-async function getAccountData(){
-  const response = await axios.get("api/allAccounts")
-  items.value = response.data
-}
-
-async function updateData(){
-  const response = await axios.get('update/allAccounts')
-}
-
-async function refresh(){
-  await updateData()
-  const response = await getAccountData()
-  items.value = response.data
-}
 
 </script>
 
