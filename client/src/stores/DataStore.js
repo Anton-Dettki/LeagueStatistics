@@ -20,9 +20,5 @@ export const useDataStore = defineStore('data', () => {
         items.value = response.data
     }
 
-    onMounted(() => {
-        getAllAccounts()
-    })
-
     return { items, updateData, getAllAccounts }
 } )

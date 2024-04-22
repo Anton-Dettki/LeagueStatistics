@@ -22,8 +22,7 @@
 
 <script setup>
 /* eslint-disable */
-import axios from "axios"
-import {onMounted, ref} from "vue";
+import {onMounted} from "vue";
 import {useDataStore} from "@/stores/DataStore";
 
 const dataStore = useDataStore()
