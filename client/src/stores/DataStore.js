@@ -10,13 +10,13 @@ export const useDataStore = defineStore('data', () => {
 
 
     async function updateData(){
-        const response = await axios.get('http://localhost:3000/update/allAccounts') //TODO
+        const response = await axios.get('https://leaguestatistics.onrender.com/update/allAccounts') //TODO
         return response.data
     }
 
     async function getAllAccounts(){
         await updateData()
-        const response = await axios.get('http://localhost:3000/api/allAccounts') //TODO
+        const response = await axios.get('https://leaguestatistics.onrender.com/api/allAccounts') //TODO
         items.value = response.data
     }
 
