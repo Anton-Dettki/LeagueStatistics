@@ -34,9 +34,9 @@ const headers = [
   { title: 'Wins', value: 'wins', sortable: true },
   { title: 'Losses', value: 'losses', sortable: true }
 ]
-
-onMounted( async () => {
-    await dataStore.getAllAccounts()
+//AWAY
+onMounted(  () => {
+     dataStore.getAllAccounts()
 })
 
 </script>
