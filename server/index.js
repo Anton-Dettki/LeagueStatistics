@@ -18,7 +18,6 @@ mongoose
     .then(() => console.log('MongoDB database Connected...'))
     .catch((err) => console.log(err))
 
-
 app.use('/api', AccountListRoutes)
 app.use('/update', riotApiRoutes)
 

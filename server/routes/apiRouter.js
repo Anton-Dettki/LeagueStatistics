@@ -4,8 +4,15 @@ const updateController = require("../controllers/updateController");
 
 const router = Router();
 
-router.get('/allAccounts', apiRouterController.account_list)
+try{
+    router.get('/allAccounts', apiRouterController.account_list)
+}catch (e) {
+    console.log(e)
+}
 
-router.get('/update', updateController.updateAllAccounts)
-
+try {
+    router.get('/update', updateController.updateAllAccounts)
+}catch (e) {
+    console.log(e)
+}
 module.exports = router
