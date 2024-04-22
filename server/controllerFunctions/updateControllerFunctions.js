@@ -23,10 +23,7 @@ async function updateTotalKillsAndDeaths(puuid, queueId) {
     const lastUpdateTime = Math.floor(acc[0].lastUpdate / 1000)
     const newUpdateTime = Math.floor(now.getTime() / 1000)
 
-    account.updateMany({}, { lastUpdate: 1712361600000})
-
-
-    if (lastUpdateTime <= newUpdateTime){
+    if (lastUpdateTime <= newUpdateTime){ //TODO
 
         let cumKills = acc[0].killsTotal
         let cumDeaths = acc[0].deathsTotal
