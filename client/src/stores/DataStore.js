@@ -26,7 +26,7 @@ export const useDataStore = defineStore('data', () => {
     }
 
     async function getAllAccounts(){
-        const response = await axios.get(apiAllAccounts) //TODO
+        const response = await axios.get("https://leaguestatistics.onrender.com/api/allAccounts") //TODO
         items.value = response.data
     }
 
