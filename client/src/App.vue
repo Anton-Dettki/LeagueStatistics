@@ -1,5 +1,5 @@
 <template>
-
+<Header></Header>
   <v-card>
     <v-data-table
       :headers="headers"
@@ -16,6 +16,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { useDataStore } from "@/stores/DataStore";
+import Header from "@/components/Header.vue";
 
 const dataStore = useDataStore()
 
