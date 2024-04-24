@@ -1,11 +1,4 @@
 <template>
-  <!-- eslint-disable -->
-<div class="header">
-
-  <div class="icon"></div>
-  <div class="fast-links">
-  </div>
-</div>
 
   <v-card>
     <v-data-table
@@ -14,16 +7,15 @@
     ></v-data-table>
   </v-card>
 
-  <v-btn @click="async () => {await dataStore.updateData()}">
+  <v-btn @click="async() => { await dataStore.updateData() }">
     Update
   </v-btn>
 
 </template>
 
 <script setup>
-/* eslint-disable */
-import {onMounted, ref} from "vue";
-import {useDataStore} from "@/stores/DataStore";
+import { onMounted } from "vue";
+import { useDataStore } from "@/stores/DataStore";
 
 const dataStore = useDataStore()
 
@@ -34,7 +26,7 @@ const headers = [
   { title: 'Wins', value: 'wins', sortable: true },
   { title: 'Losses', value: 'losses', sortable: true }
 ]
-//AWAY
+
 onMounted(  () => {
      dataStore.getAllAccounts()
 })
