@@ -13,7 +13,6 @@ export const useDataStore = defineStore('data', () => {
     }
 
     async function getAllAccounts(){
-        console.log(process.env.VUE_APP_SERVER)
         const response = await axios.get(`${process.env.VUE_APP_SERVER}/api/AllAccounts`) //TODO
         items.value = response.data
     }

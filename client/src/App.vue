@@ -8,7 +8,7 @@
     ></v-data-table>
   </v-card>
 
-  <v-btn @click="dataStore.getAllAccounts()">
+  <v-btn @click="async () => {await dataStore.updateData()}">
     Update
   </v-btn>
 
@@ -16,7 +16,7 @@
 
 <script setup>
 /* eslint-disable */
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 import {useDataStore} from "@/stores/DataStore";
 import Header from "@/components/Header.vue";
 
