@@ -1,12 +1,6 @@
 <template>
-  <!-- eslint-disable -->
-<div class="header">
 
-  <div class="icon"></div>
-  <div class="fast-links">
-  </div>
-</div>
-
+  <Header></Header>
   <v-card>
     <v-data-table
       :headers="headers"
@@ -24,6 +18,7 @@
 /* eslint-disable */
 import {onMounted} from "vue";
 import {useDataStore} from "@/stores/DataStore";
+import Header from "@/components/Header.vue";
 
 const dataStore = useDataStore()
 
