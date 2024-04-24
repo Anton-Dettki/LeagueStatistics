@@ -1,6 +1,5 @@
 <template>
 
-  <Header></Header>
   <v-card>
     <v-data-table
       :headers="headers"
@@ -8,17 +7,15 @@
     ></v-data-table>
   </v-card>
 
-  <v-btn @click="async () => {await dataStore.updateData()}">
+  <v-btn @click="async() => { await dataStore.updateData() }">
     Update
   </v-btn>
 
 </template>
 
 <script setup>
-/* eslint-disable */
-import {onMounted, ref} from "vue";
-import {useDataStore} from "@/stores/DataStore";
-import Header from "@/components/Header.vue";
+import { onMounted } from "vue";
+import { useDataStore } from "@/stores/DataStore";
 
 const dataStore = useDataStore()
 
@@ -29,7 +26,7 @@ const headers = [
   { title: 'Wins', value: 'wins', sortable: true },
   { title: 'Losses', value: 'losses', sortable: true }
 ]
-//AWAY
+
 onMounted(  () => {
      dataStore.getAllAccounts()
 })
