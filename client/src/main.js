@@ -16,6 +16,9 @@ const pinia = createPinia()
 const vuetify = createVuetify({
     components,
     directives,
+    theme: {
+        defaultTheme: 'dark',
+    }
 })
 
 createApp(App).use(vuetify).use(pinia).mount('#app')
