@@ -1,36 +1,33 @@
 <template>
-<Header></Header>
-  <v-card>
-    <v-data-table
-      :headers="headers"
-      :items="dataStore.items"
-    ></v-data-table>
-  </v-card>
 
-  <v-btn :disabled="dataStore.isBusy" @click="async() => { await dataStore.updateData() }">
-    Update
+<div class="v-card">
+  <v-btn
+  v-for="(_, tab) in tabs"
+  :key="tab"
+  :class="['tab-button', { active: currentTab === tab }]"
+  @click="currentTab = tab"
+  >
+    {{ tab }}
   </v-btn>
+</div>
+  <component :is="tabs[currentTab]" class="tab"></component>
+
 
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { useDataStore } from "@/stores/DataStore";
-import Header from "@/components/Header.vue";
+import { ref } from "vue";
+import Home from "@/views/Home.vue";
+import About from "@/views/About.vue";
+import Contact from "@/views/Contact.vue";
 
-const dataStore = useDataStore()
+const currentTab = ref("Home")
 
-const headers = [
-  { title: 'Account', value: 'gameName'},
-  { title: 'Kills', value: 'killsTotal', sortable: true },
-  { title: 'Deaths', value: 'deathsTotal', sortable: true },
-  { title: 'Wins', value: 'wins', sortable: true },
-  { title: 'Losses', value: 'losses', sortable: true }
-]
-
-onMounted(  () => {
-     dataStore.getAllAccounts()
-})
+const tabs = {
+    Home,
+    About,
+    Contact
+}
 
 </script>
 
