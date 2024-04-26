@@ -7,7 +7,7 @@
     ></v-data-table>
   </v-card>
 
-  <v-btn @click="async() => { await dataStore.updateData() }">
+  <v-btn :disabled="dataStore.isBusy" @click="async() => { await dataStore.updateData() }">
     Update
   </v-btn>
 
