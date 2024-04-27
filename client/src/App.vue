@@ -1,34 +1,29 @@
 <template>
 
-<div class="v-card">
-  <v-btn
-  v-for="(_, tab) in tabs"
-  :key="tab"
-  :class="['tab-button', { active: currentTab === tab }]"
-  @click="currentTab = tab"
-  >
-    {{ tab }}
-  </v-btn>
-</div>
-  <component :is="tabs[currentTab]" class="tab"></component>
-
+  <Header
+      @tab-changed="switchTab"
+  ></Header>
+  <component
+      :is="currentTab"
+  ></component>
 
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { shallowRef } from "vue";
+
+import Header from "@/components/Header.vue";
+
+//Those are the views that we want to switch between even though they are marked as not used rn, we need them
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Contact from "@/views/Contact.vue";
 
-const currentTab = ref("Home")
+const currentTab = shallowRef(Home)
 
-const tabs = {
-    Home,
-    About,
-    Contact
+function switchTab(tab) {
+  currentTab.value = tab
 }
-
 </script>
 
 <style>
